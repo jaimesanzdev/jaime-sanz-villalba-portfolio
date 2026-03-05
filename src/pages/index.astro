@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const featured = [
+  {
+    title: "Clever Ball",
+    subtitle: "Physics-based mobile game · 60+ levels · save + achievements · itch alpha",
+    tags: ["Unity", "C#", "Physics", "UI Architecture", "Systems"],
+    href: "/projects/clever-ball",
+  },
+  {
+    title: "Mine Escape Quest",
+    subtitle: "Team project at SDSU · core gameplay loop + real-time systems",
+    tags: ["Unity", "C#", "Team", "Gameplay"],
+    href: "/projects/3d-endless-runner",
+  },
+  {
+    title: "RPG Prototype (3D)",
+    subtitle: "Dialogue system + character controller prototype",
+    tags: ["Unity", "C#", "Dialogue System", "State Machines"],
+    href: "/projects/rpg-prototype",
+  },
+];
+---
+<BaseLayout title="Your Name · Gameplay & Systems Programmer">
+  <section class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+    <div class="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full
+                bg-gradient-to-tr from-cyan-400/25 via-teal-400/10 to-violet-400/15 blur-3xl"></div>
+
+    <div class="relative">
+      <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white/70">
+        <span class="h-1.5 w-1.5 rounded-full bg-cyan-300/80"></span>
+        Gameplay & Systems · Physics-driven · Real-time
+      </div>
+
+      <h1 class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+        Building gameplay systems that ship.
+      </h1>
+
+      <p class="mt-4 max-w-2xl text-base text-white/70">
+        Double degree in Mathematics + Computer Science. Exchange at SDSU (GPA 3.8/4.0).
+        100% in Intro to 3D Game Programming and currently a Teaching Assistant.
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <!-- Primary: high-contrast white -->
+        <a
+          href="/projects"
+          class="rounded-xl bg-white !text-black px-5 py-2.5 text-sm font-semibold shadow-2xl transition hover:bg-white/95 focus:outline-none focus:ring-4 focus:ring-cyan-300/30"
+        >
+          View Projects
+        </a>
+
+        <!-- Secondary: translucent but with clearer border and readable text -->
+        <a
+          href="/resume"
+          class="rounded-xl border border-white/20 bg-white/6 px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition focus:outline-none focus:ring-4 focus:ring-white/10"
+        >
+          Resume
+        </a>
+
+        <a
+          href="/contact"
+          class="rounded-xl border border-white/20 bg-white/6 px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition focus:outline-none focus:ring-4 focus:ring-white/10"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-10">
+    <div class="mb-4 flex items-end justify-between">
+      <h2 class="text-xl font-semibold text-white">Featured Work</h2>
+      <a href="/projects" class="text-sm text-white/60 hover:text-white">All projects →</a>
+    </div>
+
+    <div class="grid gap-4 md:grid-cols-3">
+      {featured.map((p) => (
+        <ProjectCard {...p} />
+      ))}
+    </div>
+  </section>
+
+  <section class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6">
+    <h2 class="text-lg font-semibold text-white">Engineering highlights</h2>
+    <ul class="mt-4 space-y-2 text-sm text-white/70">
+      <li>• Clever Ball: <span class="text-white/90">60+ levels</span>, save pipeline, achievements, modular UI navigation.</li>
+      <li>• Physics feel iteration: fixed timestep tuning, parameter-driven balancing.</li>
+      <li>• SDSU: <span class="text-white/90">GPA 3.8/4.0</span>, 100% in Intro to 3D Game Programming, TA.</li>
+    </ul>
+  </section>
+</BaseLayout>

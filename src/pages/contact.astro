@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const contact = {
+  name: "Jaime Sanz Villalba",
+  role: "Gameplay Programmer (Unity / C#)",
+  location: "San Diego, CA (SDSU) · Murcia, Spain",
+  email: "jaime.sanz.dev@gmail.com",
+  linkedin: "https://www.linkedin.com/in/jaimesanzdev",
+  github: "https://github.com/jaimesanzdev",
+  itch: "https://riarugames.itch.io/clever-ball",
+};
+---
+
+<BaseLayout title="Contact · Jaime Sanz Villalba">
+  <div class="mx-auto max-w-3xl">
+
+    <section class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+      <!-- Glow -->
+      <div
+        class="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full
+               bg-gradient-to-tr from-cyan-400/20 via-teal-400/10 to-violet-400/10 blur-3xl"
+      ></div>
+
+      <div class="relative">
+        <p class="text-sm text-white/60">Contact</p>
+        <h1 class="mt-2 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+          Let’s build something real-time.
+        </h1>
+
+        <p class="mt-4 text-sm text-white/70 leading-relaxed">
+          I’m actively looking for Junior Gameplay Programmer / Junior Game Developer roles in the San Diego area.
+          The fastest way to reach me is email.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <!-- Primary -->
+          <a
+            href={`mailto:${contact.email}`}
+            class="rounded-xl bg-white !text-black px-5 py-2.5 text-sm font-semibold shadow-2xl transition hover:bg-white/95 focus:outline-none focus:ring-4 focus:ring-cyan-300/30"
+          >
+            Email Me
+          </a>
+
+          <!-- Secondary -->
+          <a
+            href={contact.linkedin}
+            target="_blank"
+            rel="noopener"
+            class="rounded-xl border border-white/20 bg-white/6 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/10"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            href={contact.github}
+            target="_blank"
+            rel="noopener"
+            class="rounded-xl border border-white/20 bg-white/6 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/10"
+          >
+            GitHub
+          </a>
+
+          <a
+            href={contact.itch}
+            target="_blank"
+            rel="noopener"
+            class="rounded-xl border border-white/20 bg-white/6 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-white/10"
+          >
+            itch.io
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8 grid gap-4 md:grid-cols-2">
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-base font-semibold text-white">Details</h2>
+        <div class="mt-4 space-y-2 text-sm text-white/70">
+          <p><span class="text-white/90 font-medium">Name:</span> {contact.name}</p>
+          <p><span class="text-white/90 font-medium">Role:</span> {contact.role}</p>
+          <p><span class="text-white/90 font-medium">Location:</span> {contact.location}</p>
+          <p>
+            <span class="text-white/90 font-medium">Email:</span>{" "}
+            <a class="underline text-white" href={`mailto:${contact.email}`}>{contact.email}</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <h2 class="text-base font-semibold text-white">Open to</h2>
+        <ul class="mt-4 space-y-2 text-sm text-white/70">
+          <li>• Junior Gameplay Programmer</li>
+          <li>• Junior Game Developer (Unity / C#)</li>
+          <li>• Gameplay Systems (physics, progression, UI architecture)</li>
+          <li>• Team projects and production-oriented workflows</li>
+        </ul>
+        <p class="mt-4 text-xs text-white/50">
+          Prefer email for first contact. Happy to share additional technical breakdowns upon request.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

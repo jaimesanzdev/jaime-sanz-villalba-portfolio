@@ -1,0 +1,26 @@
+---
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/tech", label: "Tech" },
+  { href: "/about", label: "About" },
+  { href: "/resume", label: "Resume" },
+];
+---
+<nav class="sticky top-0 z-50 border-b border-white/10 bg-[#0b0f14]/80 backdrop-blur">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-5 py-3">
+    <a href="/" class="flex items-center gap-2 font-semibold tracking-tight">
+      <span class="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm">RG</span>
+      <span class="text-sm text-white/90">Jaime Sanz Villalba</span>
+      <span class="text-sm text-white/50">·  RiaruGames</span>
+    </a>
+
+    <div class="hidden gap-6 md:flex">
+      {links.map(l => (
+        <a href={l.href} class="text-sm text-white/70 hover:text-white">
+          {l.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>

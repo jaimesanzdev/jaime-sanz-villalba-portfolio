@@ -1,0 +1,23 @@
+---
+import Nav from "../components/Nav.astro";
+import "../styles/global.css";
+const { title = "Portfolio" } = Astro.props;
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Nav />
+    <main class="mx-auto max-w-5xl px-5 py-12">
+      <slot />
+    </main>
+    <footer class="mx-auto max-w-5xl px-5 pb-10 text-sm text-white/50">
+      <div class="border-t border-white/10 pt-6">
+        © {new Date().getFullYear()} · Jaime Sanz Vilalba · RiaruGames
+      </div>
+    </footer>
+  </body>
+</html>

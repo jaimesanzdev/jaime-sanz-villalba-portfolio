@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+
+const projects = [
+  {
+    title: "Clever Ball",
+    subtitle: "Physics-based mobile game · 60+ levels · save + achievements · itch alpha",
+    tags: ["Unity", "C#", "Physics", "Systems", "UI"],
+    href: "/projects/clever-ball",
+  },
+  {
+    title: "Mine Escape Quest",
+    subtitle: "Team project at SDSU · endless loop + spawning systems",
+    tags: ["Unity", "C#", "Team", "Gameplay"],
+    href: "/projects/mine-escape-quest",
+  },
+  {
+    title: "RPG Prototype (3D)",
+    subtitle: "Dialogue system + controller prototype",
+    tags: ["Unity", "C#", "Dialogue", "State Machines"],
+    href: "/projects/rpg-prototype",
+  },
+  {
+    title: "2D Java Game",
+    subtitle: "JFrame game loop · input + rendering · OOP design",
+    tags: ["Java", "2D", "Game Loop"],
+    href: "/projects/java-2d-game",
+  },
+];
+---
+<BaseLayout title="Projects · Your Name">
+  <h1 class="mt-4 text-3xl font-semibold tracking-[-0.02em] text-white md:text-6xl lg:text-7xl">
+  <p class="mt-2 max-w-2xl text-sm text-white/70">
+    Playable demos and engineering breakdowns focused on gameplay systems, real-time architecture, and iteration speed.
+  </p>
+
+  <div class="mt-6 grid gap-4 md:grid-cols-2">
+    {projects.map((p) => <ProjectCard {...p} />)}
+  </div>
+</BaseLayout>

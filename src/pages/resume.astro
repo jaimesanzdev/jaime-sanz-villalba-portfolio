@@ -1,0 +1,193 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const resumePdfPath = "/jaime-sanz-villalba-resume.pdf"; // Put your PDF inside public/resume.pdf
+---
+
+<BaseLayout title="Resume · Jaime Sanz Villalba">
+  <div class="mx-auto max-w-5xl">
+
+    <!-- Header -->
+    <header class="mb-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div>
+        <h1 class="text-3xl font-semibold text-white">
+          Jaime Sanz Villalba
+        </h1>
+        <p class="mt-2 text-sm text-white/70">
+          Gameplay Programmer (Unity / C#) · Mathematics & Computer Science · SDSU Exchange (GPA 3.8/4.0)
+        </p>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <a
+          href={resumePdfPath}
+          download
+          class="rounded-xl bg-white !text-black px-5 py-2.5 text-sm font-semibold shadow-2xl transition hover:bg-white/95 focus:outline-none focus:ring-4 focus:ring-cyan-300/30"
+        >
+          Download PDF
+        </a>
+
+        <button
+          onclick="window.print()"
+          class="rounded-xl border border-white/20 bg-white/6 px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition focus:outline-none focus:ring-4 focus:ring-white/10"
+        >
+          Print Version
+        </button>
+      </div>
+    </header>
+
+    <!-- Resume Content -->
+    <article id="onepage-resume" class="rounded-2xl border border-white/10 bg-white/5 p-8">
+
+      <div class="grid gap-10 md:grid-cols-[1fr_320px]">
+
+        <!-- LEFT COLUMN -->
+        <div>
+
+          <!-- Professional Summary -->
+          <section class="mb-8">
+            <h2 class="text-xl font-semibold text-white">Professional Summary</h2>
+            <p class="mt-3 text-sm text-white/70 leading-relaxed">
+              Gameplay Programmer with a strong foundation in Mathematics and Computer Science.
+              Specialized in gameplay systems, real-time architecture, and physics-driven mechanics.
+              Experienced in designing scalable systems including save pipelines, UI architecture,
+              and progression systems. Currently serving as Teaching Assistant in 3D Game Programming at SDSU.
+            </p>
+          </section>
+
+          <!-- Experience -->
+          <section class="mb-8">
+            <h2 class="text-lg font-semibold text-white">Experience</h2>
+
+            <div class="mt-4 space-y-6 text-sm text-white/70">
+
+              <div>
+                <div class="flex justify-between">
+                  <strong class="text-white">Teaching Assistant — Intro to 3D Game Programming</strong>
+                  <span class="text-white/50">SDSU (2025–2026)</span>
+                </div>
+                <ul class="mt-2 ml-5 list-disc space-y-1">
+                  <li>Provided technical feedback on gameplay system implementation and architecture.</li>
+                  <li>Conducted live demonstrations on debugging, Git workflows, and Unity systems.</li>
+                  <li>Mentored student projects focused on real-time 3D development.</li>
+                </ul>
+              </div>
+
+              <div>
+                <div class="flex justify-between">
+                  <strong class="text-white">Independent Developer — Clever Ball</strong>
+                  <span class="text-white/50">RiaruGames</span>
+                </div>
+                <ul class="mt-2 ml-5 list-disc space-y-1">
+                  <li>Developed a physics-based mobile game featuring 60+ handcrafted levels.</li>
+                  <li>Engineered persistent save system, achievements pipeline, and modular UI architecture.</li>
+                  <li>Designed scalable state management system for menus and progression.</li>
+                  <li>Implemented Rigidbody-based mechanics and refined gameplay feel through physics tuning.</li>
+                </ul>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Projects -->
+          <section class="mb-8">
+            <h2 class="text-lg font-semibold text-white">Selected Projects</h2>
+
+            <div class="mt-4 space-y-4 text-sm text-white/70">
+
+              <div>
+                <strong class="text-white">Mine Escape Quest — 3D Endless Runner</strong><br />
+                Implemented terrain generation using modular prefabs, player controller,
+                camera system, projectile combat, and Git-based team workflow.
+              </div>
+
+              <div>
+                <strong class="text-white">3D RPG Prototype</strong><br />
+                Designed node-based dialogue system and 3D character controller.
+                Built asset pipeline from MagicaVoxel → Blender → Unity.
+              </div>
+
+              <div>
+                <strong class="text-white">2D Java Game (JFrame)</strong><br />
+                Implemented manual game loop, rendering pipeline, collision detection,
+                and object-oriented architecture.
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Education -->
+          <section>
+            <h2 class="text-lg font-semibold text-white">Education</h2>
+            <div class="mt-3 text-sm text-white/70">
+              <strong class="text-white">Double Degree in Mathematics & Computer Science</strong><br />
+              University of Murcia — Expected 2028<br />
+              <span class="text-white/60">
+                Exchange: San Diego State University — GPA 3.8 / 4.0
+              </span>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="space-y-8">
+
+          <!-- Skills -->
+          <div>
+            <h3 class="text-base font-semibold text-white">Technical Skills</h3>
+            <ul class="mt-3 space-y-2 text-sm text-white/70">
+              <li>C#, Java, C++, C, Python</li>
+              <li>Unity · Gameplay Systems · Physics</li>
+              <li>AI State Machines · Multiplayer · 3D</li>
+              <li>Save/Progression Systems · UI Architecture</li>
+              <li>Debugging · Profiling · Git Workflow</li>
+            </ul>
+          </div>
+
+          <!-- Tools -->
+          <div>
+            <h3 class="text-base font-semibold text-white">Tools</h3>
+            <ul class="mt-3 space-y-2 text-sm text-white/70">
+              <li>Unity</li>
+              <li>Blender</li>
+              <li>Git & GitHub</li>
+              <li>Visual Studio / Rider</li>
+            </ul>
+          </div>
+
+          <!-- Languages -->
+          <div>
+            <h3 class="text-base font-semibold text-white">Languages</h3>
+            <p class="mt-3 text-sm text-white/70">
+              Spanish — Native<br />
+              English — Full Professional Proficiency (Academic Exchange in the US)<br />
+              Cambridge C1 (in progress)
+            </p>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="text-base font-semibold text-white">Contact</h3>
+            <p class="mt-3 text-sm text-white/70">
+              jaime.sanz.dev@gmail.com<br />
+              linkedin.com/in/jaimesanzdev<br />
+              github.com/jaimesanzdev
+            </p>
+          </div>
+
+        </aside>
+      </div>
+
+    </article>
+  </div>
+
+  <!-- Print rules -->
+  <style is:global>
+    @media print {
+      body { background: white; color: black; }
+      nav, footer, button { display: none !important; }
+      #onepage-resume { background: white !important; color: black !important; border: none !important; }
+    }
+  </style>
+
+</BaseLayout>
