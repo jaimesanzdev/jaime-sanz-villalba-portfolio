@@ -1,2 +1,17 @@
-# jaime-sanz-villalba-portfolio
-Personal portfolio of Jaime Sanz Villalba, Gameplay &amp; Systems Programmer (Unity / C#) focused on real-time architecture, physics-driven mechanics, and scalable gameplay systems.
+# Jaime Sanz Villalba — Portfolio
+
+Professional portfolio site for gameplay & systems programming work (Unity / C#).
+
+## Tech
+- Astro
+- TailwindCSS
+- TypeScript
+
+## Local dev
+npm install
+npm run dev
+
+## Contact
+Email: jaime.sanz.dev@gmail.com  
+LinkedIn: https://linkedin.com/in/jaimesanzdev  
+GitHub: https://github.com/jaimesanzdev
