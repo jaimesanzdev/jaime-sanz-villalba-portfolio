@@ -1,0 +1,126 @@
+---
+//import { Icon } from "astro-icon"; // remove if you don't use astro-icon
+
+interface Props {
+  title: string;
+  tagline: string;
+  roleLine: string; // e.g. "Solo project · Gameplay + Systems"
+  statusLine: string; // e.g. "In development · Public alpha available"
+  chips?: string[];
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  media?: { type: "image" | "video"; src: string; alt?: string };
+}
+
+const {
+  title,
+  tagline,
+  roleLine,
+  statusLine,
+  chips = [],
+  primaryCta,
+  secondaryCta,
+  media = { type: "image", src: "/placeholders/project-hero.png", alt: "Project preview placeholder" },
+} = Astro.props as Props;
+---
+
+<section class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+  <div class="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-cyan-400/25 via-teal-400/10 to-violet-400/15 blur-3xl"></div>
+
+  <div class="relative grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-center">
+    <div>
+      <div class="inline-flex flex-wrap items-center gap-2 rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white/70">
+        <span class="h-1.5 w-1.5 rounded-full bg-cyan-300/80"></span>
+        <span>{roleLine}</span>
+        <span class="text-white/40">·</span>
+        <span>{statusLine}</span>
+      </div>
+
+      <h1 class="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
+        {title}
+      </h1>
+
+      <p class="mt-3 max-w-2xl text-base text-white/70">
+        {tagline}
+      </p>
+
+      {chips.length > 0 && (
+        <div class="mt-4 flex flex-wrap gap-2">
+          {chips.map((c) => (
+            <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/70">
+              {c}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        {primaryCta && (
+          <a
+            href={primaryCta.href}
+            class="rounded-xl bg-white !text-black px-5 py-2.5 text-sm font-semibold shadow-2xl transition hover:bg-white/95 focus:outline-none focus:ring-4 focus:ring-cyan-300/30"
+            target={primaryCta.href.startsWith("http") ? "_blank" : undefined}
+            rel={primaryCta.href.startsWith("http") ? "noreferrer" : undefined}
+          >
+            {primaryCta.label}
+          </a>
+        )}
+        {secondaryCta && (
+          <a
+            href={secondaryCta.href}
+            class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10"
+          >
+            {secondaryCta.label}
+          </a>
+        )}
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-black/30">
+        {media.type === "video" ? (
+          <video class="h-full w-full object-cover" src={media.src} autoplay muted loop playsinline />
+        ) : (
+          <img class="h-full w-full object-cover" src={media.src} alt={media.alt ?? "Project preview"} loading="lazy" />
+        )}
+      </div>
+      <p class="mt-2 text-xs text-white/50">
+        Media placeholder — replace with a short gameplay GIF/video when ready.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="mt-10 grid gap-10 md:grid-cols-[1fr_360px]">
+  <div class="space-y-10">
+    <slot name="overview" />
+    <slot name="loop" />
+    <slot name="pillars" />
+    <slot name="audience" />
+    <slot name="role" />
+    <slot name="tech" />
+    <slot name="iteration" />
+    <slot name="challenges" />
+    <slot name="status" />
+    <slot name="links" />
+  </div>
+
+  <aside class="space-y-4">
+    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+      <h2 class="text-sm font-semibold text-white">At a glance</h2>
+      <div class="mt-3 space-y-2 text-sm text-white/70">
+        <slot name="glance" />
+      </div>
+    </div>
+
+    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+      <h2 class="text-sm font-semibold text-white">What recruiters look for</h2>
+      <ul class="mt-3 space-y-2 text-sm text-white/70">
+        <li>• Clear gameplay loop and player value</li>
+        <li>• Iteration mindset (problem → change → outcome)</li>
+        <li>• Ownership and scope</li>
+        <li>• Technical signal without leaking IP</li>
+      </ul>
+    </div>
+  </aside>
+</section>

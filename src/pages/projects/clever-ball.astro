@@ -1,7 +1,204 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectTemplate from "../../components/ProjectTemplate.astro";
+
+const project = {
+  title: "Clever Ball",
+  tagline:
+    "A physics-driven mobile puzzle game focused on readable chaos, tight control, and fast ‘one more try’ mastery.",
+  roleLine: "Solo project · Gameplay + Systems",
+  statusLine: "In development · Public alpha available",
+  chips: ["Mobile", "Unity", "C#", "Physics", "60+ levels", "Save/Progression"],
+  primaryCta: { label: "Play Alpha (itch.io)", href: "https://riarugames.itch.io/clever-ball" },
+  secondaryCta: { label: "Contact", href: "/contact" },
+  media: { type: "image" as const, src: "/placeholders/project-hero.png", alt: "Clever Ball gameplay placeholder" },
+};
 ---
+
 <BaseLayout title="Clever Ball · Jaime Sanz Villalba">
-  <h1 class="text-2xl font-semibold text-white">Clever Ball</h1>
-  <p class="mt-3 text-white/70">Project page coming soon.</p>
+  <ProjectTemplate {...project}>
+    <!-- AT A GLANCE (sidebar) -->
+    <Fragment slot="glance">
+      <div><span class="text-white/50">Platform:</span> Mobile</div>
+      <div><span class="text-white/50">Engine:</span> Unity (C#)</div>
+      <div><span class="text-white/50">Scope:</span> 60+ handcrafted levels</div>
+      <div><span class="text-white/50">Release:</span> Alpha on itch.io</div>
+      <div><span class="text-white/50">Code:</span> Private repo (commercial)</div>
+    </Fragment>
+
+    <!-- OVERVIEW -->
+    <section slot="overview" class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white">What it is (30 seconds)</h2>
+      <p class="mt-3 text-sm text-white/70">
+        Clever Ball is a level-based physics puzzle where the player uses momentum, timing, and environmental interactions
+        to reach a goal with minimal friction. The focus is mobile-first clarity: short sessions, readable outcomes, fast
+        retries, and a strong sense of mastery.
+      </p>
+
+      <ul class="mt-4 space-y-2 text-sm text-white/70">
+        <li>• Short levels designed around a clear mechanic twist.</li>
+        <li>• Fast failure, instant restart, visible cause/effect.</li>
+        <li>• Difficulty pacing focused on learning and consistency.</li>
+        <li>• Progression supported by save data and achievements.</li>
+      </ul>
+    </section>
+
+    <!-- CORE LOOP -->
+    <section slot="loop" class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white">Core gameplay loop</h2>
+      <ol class="mt-4 space-y-2 text-sm text-white/70">
+        <li><span class="text-white/90">1) Read</span> the level and objective quickly.</li>
+        <li><span class="text-white/90">2) Act</span> with mobile-friendly input and timing.</li>
+        <li><span class="text-white/90">3) Observe</span> physics outcomes (momentum + collisions).</li>
+        <li><span class="text-white/90">4) Learn</span> from clear feedback.</li>
+        <li><span class="text-white/90">5) Retry or progress</span> (instant restart, saved progression).</li>
+      </ol>
+    </section>
+
+    <!-- PILLARS -->
+    <section slot="pillars" class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white">What makes it interesting</h2>
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+          <h3 class="text-sm font-semibold text-white">Physics that feels intentional</h3>
+          <p class="mt-2 text-sm text-white/70">
+            Outcomes are physics-based, but the player always has enough information to improve. “Predictable and learnable”
+            beats “realistic”.
+          </p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+          <h3 class="text-sm font-semibold text-white">Levels that teach through play</h3>
+          <p class="mt-2 text-sm text-white/70">
+            Each level introduces a concept, then escalates it with a constraint or twist. The goal is curiosity → attempt → adjustment.
+          </p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+          <h3 class="text-sm font-semibold text-white">Fast retries</h3>
+          <p class="mt-2 text-sm text-white/70">
+            Restart speed and feedback clarity keep the player in flow. Short sessions, low friction, high iteration.
+          </p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+          <h3 class="text-sm font-semibold text-white">Mobile-first readability</h3>
+          <p class="mt-2 text-sm text-white/70">
+            Clear silhouettes, minimal visual noise, and immediate goal states. The player should always understand “what happened”.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE -->
+    <section slot="audience" class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white">Target player & experience</h2>
+      <ul class="mt-4 space-y-2 text-sm text-white/70">
+        <li>• <span class="text-white/90">Audience:</span> players who enjoy skill-based puzzles and physics mastery.</li>
+        <li>• <span class="text-white/90">Session length:</span> 30 seconds to ~3 minutes per level.</li>
+        <li>• <span class="text-white/90">Goal feeling:</span> “I get it… one more try.”</li>
+        <li>• <span class="text-white/90">Quality bar:</span> players can explain why they failed and what to try next.</li>
+      </ul>
+    </section>
+
+    <!-- ROLE -->
+    <section slot="role" class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white">My role</h2>
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+          <h3 class="text-sm font-semibold text-white">Gameplay & design</h3>
+          <ul class="mt-2 space-y-2 text-sm text-white/70">
+            <li>• Core mechanics and physics tuning</li>
+            <li>• Level design and difficulty pacing</li>
+            <li>• Player feedback and clarity</li>
+          </ul>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+          <h3 class="text-sm font-semibold text-white">Engineering</h3>
+          <ul class="mt-2 space-y-2 text-sm text-white/70">
+            <li>• Save/progression persistence</li>
+            <li>• Achievements + settings</li>
+            <li>• Modular UI navigation and state flow</li>
+            <li>• Alpha release pipeline</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH (NON-SENSITIVE) -->
+    <section slot="tech" class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white">Tech (high-level)</h2>
+      <ul class="mt-4 space-y-2 text-sm text-white/70">
+        <li>• Unity (C#), mobile-focused production constraints.</li>
+        <li>• Core systems: save data, achievements, settings, modular UI flow.</li>
+        <li>• Commercial project — implementation details are intentionally not shared publicly.</li>
+      </ul>
+
+      <div class="mt-5 rounded-xl border border-white/10 bg-black/20 p-4">
+        <h3 class="text-sm font-semibold text-white">Engineering highlight</h3>
+        <p class="mt-2 text-sm text-white/70">
+          Built a scalable UI/state structure to support progression, achievements, and future content without increasing regression risk.
+        </p>
+      </div>
+    </section>
+
+    <!-- ITERATION -->
+    <section slot="iteration" class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white">Iteration highlights (problem → change → outcome)</h2>
+      <div class="mt-4 space-y-4">
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+          <p class="text-sm text-white/70"><span class="text-white/90">Physics feel:</span> tuned timing and response parameters to make outcomes consistent and learnable on mobile.</p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+          <p class="text-sm text-white/70"><span class="text-white/90">Readability:</span> reduced visual noise and improved cause/effect signaling so failures felt fair.</p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-black/20 p-4">
+          <p class="text-sm text-white/70"><span class="text-white/90">Difficulty pacing:</span> reorganized levels to smooth spikes observed during playtests.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHALLENGES -->
+    <section slot="challenges" class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white">Challenges & lessons learned</h2>
+      <ul class="mt-4 space-y-2 text-sm text-white/70">
+        <li>• Physics is UX: predictability beats realism for skill-based mobile gameplay.</li>
+        <li>• Readability is a design constraint: players must understand failure causes quickly.</li>
+        <li>• Content pipelines matter early: level iteration only scales with structure.</li>
+        <li>• Architecture is a productivity tool: clear state boundaries reduce iteration friction.</li>
+      </ul>
+    </section>
+
+    <!-- STATUS -->
+    <section slot="status" class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white">Current status & next steps</h2>
+      <p class="mt-3 text-sm text-white/70">
+        Current: public alpha available, 60+ levels implemented, core progression systems in place.
+      </p>
+      <ul class="mt-4 space-y-2 text-sm text-white/70">
+        <li>• Expand content with new mechanic combinations and pacing polish.</li>
+        <li>• Improve onboarding and early difficulty ramp.</li>
+        <li>• Performance profiling and build size optimization.</li>
+        <li>• Prepare commercial release (store assets, QA, trailer).</li>
+      </ul>
+    </section>
+
+    <!-- LINKS -->
+    <section slot="links" class="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <h2 class="text-lg font-semibold text-white">Links</h2>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <a
+          href="https://riarugames.itch.io/clever-ball"
+          target="_blank"
+          rel="noreferrer"
+          class="rounded-xl bg-white !text-black px-5 py-2.5 text-sm font-semibold shadow-2xl transition hover:bg-white/95 focus:outline-none focus:ring-4 focus:ring-cyan-300/30"
+        >
+          Play Alpha (itch.io)
+        </a>
+        <a href="/resume" class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10">
+          Resume
+        </a>
+        <a href="/contact" class="rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm text-white hover:bg-white/10">
+          Contact
+        </a>
+      </div>
+    </section>
+  </ProjectTemplate>
 </BaseLayout>
