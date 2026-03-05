@@ -9,6 +9,7 @@ Professional portfolio site for gameplay & systems programming work (Unity / C#)
 
 ## Local dev
 npm install
+
 npm run dev
 
 ## Contact
