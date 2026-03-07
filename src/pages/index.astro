@@ -2,31 +2,56 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
-const featured = [
+type FeaturedProject = {
+  title: string;
+  subtitle: string;
+  href: string;
+  tags: string[];
+  previewVideo?: {
+    src: string;
+    poster?: string;
+    aspect?: "16/10" | "16/9" | "1/1";
+  };
+};
+
+const featured: FeaturedProject[] = [
   {
     title: "Clever Ball",
     subtitle: "Physics-based mobile game · 60+ levels · save + achievements · itch alpha",
-    tags: ["Unity", "C#", "Physics", "UI Architecture", "Systems"],
     href: "/projects/clever-ball",
+    tags: ["Unity", "C#", "Physics", "UI Architecture", "Systems"],
+    previewVideo: { src: "/media/previews/clever-ball-menu.mp4", aspect: "16/9" as const },
   },
   {
     title: "Mine Escape Quest",
     subtitle: "Team project at SDSU · core gameplay loop + real-time systems",
-    tags: ["Unity", "C#", "Team", "Gameplay"],
-    href: "/projects/3d-endless-runner",
+    href: "/projects/mine-escape-quest",
+    tags: ["Unity", "C#", "Procedural", "Team", "Gameplay"],
+    previewVideo: { src: "/media/previews/mine-escape.mp4", aspect: "16/9" as const },
   },
   {
     title: "RPG Prototype (3D)",
     subtitle: "Dialogue system + character controller prototype",
-    tags: ["Unity", "C#", "Dialogue System", "State Machines"],
     href: "/projects/rpg-prototype",
+    tags: ["Unity", "C#", "Dialogue System", "State Machines"],
+    previewVideo: { src: "/media/previews/rpg-dialogue.mp4", aspect: "16/9" as const },
+  },
+  {
+    title: "Project #4",
+    subtitle: "Short one-liner placeholder (replace later).",
+    href: "/projects/project-4",
+    tags: ["Tag1", "Tag2"],
+    previewVideo: { src: "/media/previews/placeholder.mp4", aspect: "16/9" as const },
   },
 ];
 ---
+
 <BaseLayout title="Jaime Sanz Villalba · Gameplay & Systems Programmer">
   <section class="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8">
-    <div class="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full
-                bg-gradient-to-tr from-cyan-400/25 via-teal-400/10 to-violet-400/15 blur-3xl"></div>
+    <div
+      class="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full
+             bg-gradient-to-tr from-cyan-400/25 via-teal-400/10 to-violet-400/15 blur-3xl"
+    ></div>
 
     <div class="relative">
       <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white/70">
@@ -44,7 +69,6 @@ const featured = [
       </p>
 
       <div class="mt-6 flex flex-wrap gap-3">
-        <!-- Primary: high-contrast white -->
         <a
           href="/projects"
           class="rounded-xl bg-white !text-black px-5 py-2.5 text-sm font-semibold shadow-2xl transition hover:bg-white/95 focus:outline-none focus:ring-4 focus:ring-cyan-300/30"
@@ -52,7 +76,6 @@ const featured = [
           View Projects
         </a>
 
-        <!-- Secondary: translucent but with clearer border and readable text -->
         <a
           href="/resume"
           class="rounded-xl border border-white/20 bg-white/6 px-4 py-2 text-sm font-medium text-white hover:bg-white/10 transition focus:outline-none focus:ring-4 focus:ring-white/10"
@@ -76,7 +99,8 @@ const featured = [
       <a href="/projects" class="text-sm text-white/60 hover:text-white">All projects →</a>
     </div>
 
-    <div class="grid gap-4 md:grid-cols-3">
+    <!-- 2x2 grid on desktop -->
+    <div class="grid gap-4 md:grid-cols-2">
       {featured.map((p) => (
         <ProjectCard {...p} />
       ))}

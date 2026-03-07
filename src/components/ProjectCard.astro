@@ -1,12 +1,26 @@
---- 
+---
 interface Props {
   title: string;
   subtitle?: string;
   tags?: string[];
   href?: string;
+
+  // NEW: optional video preview
+  previewVideo?: {
+    src: string; // e.g. "/media/previews/clever-ball-menu.mp4"
+    poster?: string; // optional poster image
+    aspect?: "16/10" | "16/9" | "1/1";
+  };
 }
 
-const { title, subtitle, tags = [], href = "#" } = Astro.props as Props;
+const { title, subtitle, tags = [], href = "#", previewVideo } = Astro.props as Props;
+
+const aspectClass =
+  previewVideo?.aspect === "16/9"
+    ? "aspect-[16/9]"
+    : previewVideo?.aspect === "1/1"
+    ? "aspect-square"
+    : "aspect-[16/10]";
 ---
 
 <a
@@ -43,6 +57,21 @@ const { title, subtitle, tags = [], href = "#" } = Astro.props as Props;
           {t}
         </span>
       ))}
+    </div>
+  )}
+
+  {previewVideo && (
+    <div class={`mt-5 overflow-hidden rounded-xl border border-white/10 bg-black/30 ${aspectClass}`}>
+      <video
+        class="h-full w-full object-cover"
+        src={previewVideo.src}
+        poster={previewVideo.poster}
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      />
     </div>
   )}
 </a>
